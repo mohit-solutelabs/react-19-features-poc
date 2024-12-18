@@ -1,4 +1,4 @@
-import { use, useOptimistic, useState, useTransition } from "react";
+import { memo, use, useOptimistic, useState, useTransition } from "react";
 import classNames from "classnames";
 import axios from "axios";
 
@@ -52,4 +52,4 @@ function Todos({ todosPromise }) {
   ));
 }
 
-export default Todos;
+export default memo(Todos);

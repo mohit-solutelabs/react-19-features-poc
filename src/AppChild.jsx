@@ -1,8 +1,9 @@
 "use client";
-import { Suspense } from "react";
+import { memo, Suspense } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import Todos from "./components/Todos";
+import TodosOld from "./components/TodosOld";
 
 function AppChild({ todosPromise }) {
   return (
@@ -17,10 +18,23 @@ function AppChild({ todosPromise }) {
       </div>
       <h1 className="mb-5">Vite + React</h1>
       <Suspense fallback={<p>⌛Downloading message...</p>}>
-        <Todos todosPromise={todosPromise} />
+        <div className="flex items-center justify-center gap-2">
+          <div className="w-1/2 flex flex-col gap-2">
+            <h4 className="text-2xl font-bold text-left my-5">
+              Todos with useOptimistic and useTransition hook usage
+            </h4>
+            <Todos todosPromise={todosPromise} />
+          </div>
+          <div className="w-1/2 flex flex-col gap-2">
+            <h4 className="text-2xl font-bold text-left my-5">
+              Todos without useOptimistic and useTransition hook usage
+            </h4>
+            <TodosOld todosPromise={todosPromise} />
+          </div>
+        </div>
       </Suspense>
     </>
   );
 }
 
-export default AppChild;
+export default memo(AppChild);
