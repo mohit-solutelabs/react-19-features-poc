@@ -2,7 +2,7 @@
 
 This repo provides different POCs of React v19 features for developers and stackholders.
 
-## About the Setup
+## Project tech stack
 
 This project was boostrapped from scratch using Vite, React v19, tailwindcss using TypeScript.
 
